@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+	<display-name></display-name>
+	<welcome-file-list>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+
+	<servlet>
+		<servlet-name>UserLoginServlet</servlet-name>
+		<servlet-class>com.wirelessorder.servlet.UserLoginServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>UserRegServlet</servlet-name>
+		<servlet-class>com.wirelessorder.servlet.UserRegServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MenuServlet</servlet-name>
+		<servlet-class>com.wirelessorder.servlet.MenuServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>MealAddServlet</servlet-name>
+		<servlet-class>com.wirelessorder.servlet.MealAddServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>NewOrderServlet</servlet-name>
+		<servlet-class>com.wirelessorder.servlet.NewOrderServlet</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>AdminLoginServlet</servlet-name>
+		<servlet-class>com.wirelessorder.servlet.AdminLoginServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>UserLoginServlet</servlet-name>
+		<url-pattern>/servlet/UserLoginServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>UserRegServlet</servlet-name>
+		<url-pattern>/servlet/UserRegServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MenuServlet</servlet-name>
+		<url-pattern>/servlet/MenuServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MealAddServlet</servlet-name>
+		<url-pattern>/servlet/MealAddServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>NewOrderServlet</servlet-name>
+		<url-pattern>/servlet/NewOrderServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>AdminLoginServlet</servlet-name>
+		<url-pattern>/servlet/AdminLoginServlet</url-pattern>
+	</servlet-mapping>
+	
+</web-app>
