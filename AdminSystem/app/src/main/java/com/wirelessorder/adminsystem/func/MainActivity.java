@@ -27,6 +27,7 @@ public class MainActivity extends ActionBarActivity {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         //设置抽屉DrawerLayout
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar,

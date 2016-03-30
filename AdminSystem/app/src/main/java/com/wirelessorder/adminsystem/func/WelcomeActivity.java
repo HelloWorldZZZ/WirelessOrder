@@ -60,7 +60,7 @@ public class WelcomeActivity extends AppCompatActivity {
                         }
                     });
                     new Thread(DBSyncThread).start();
-                    //mSp.edit().putBoolean("firstStartup", false).commit();
+                    mSp.edit().putBoolean("firstStartup", false).commit();
                 } else {
                     loadMainActivity();
                 }
