@@ -11,7 +11,12 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <include layout="@layout/my_toolbar" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:elevation="6dp"
+            android:background="@color/main_color"/>
 
         <FrameLayout
             android:id="@+id/frame_content"
@@ -26,6 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        app:menu="@menu/menu_main"
         app:headerLayout="@layout/drawer_header"/>
 
 </android.support.v4.widget.DrawerLayout>
