@@ -1,5 +1,7 @@
 package com.wirelessorder.dao;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -32,6 +34,13 @@ public class AdminDao {
 		String sqlStr = "SELECT * FROM t_admin WHERE admin_name=? AND admin_password=?";
 		admin = jdbcTemplate.query(sqlStr, new Object[] {adminName, Encipher.encrypt(adminPassword)}, new AdminMapper()).get(0);
 		return admin;
+	}
+	
+	public List<Admin> getAllAdmins() {
+		List<Admin> admins = null;
+		String sqlString = "SELECT * FROM t_admin";
+		admins = jdbcTemplate.query(sqlString, new AdminMapper());
+		return admins;
 	}
 
 }

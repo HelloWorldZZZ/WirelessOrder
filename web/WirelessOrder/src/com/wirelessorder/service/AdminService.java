@@ -1,5 +1,7 @@
 package com.wirelessorder.service;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -22,6 +24,10 @@ public class AdminService {
 	
 	public void addAdmin(Admin admin) {
 		adminDao.addNewAdmin(admin);
+	}
+	
+	public List<Admin> getAllAdmins() {
+		return adminDao.getAllAdmins();
 	}
 
 }

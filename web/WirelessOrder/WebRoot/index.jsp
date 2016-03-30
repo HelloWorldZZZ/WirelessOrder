@@ -105,5 +105,14 @@
 			<br /> <input type="submit" value="提交订单">
 		</center>
 	</form>
+	<form action="servlet/DBSyncServlet" method="post">
+		<center>
+			<div class="inputWrap">
+				<input type=hidden name="order" autofocus
+					required>
+			</div>
+			<br /> <input type="submit" value="获取所有数据">
+		</center>
+	</form>
 </body>
 </html>

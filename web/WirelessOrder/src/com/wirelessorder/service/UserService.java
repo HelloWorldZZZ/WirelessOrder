@@ -1,5 +1,7 @@
 package com.wirelessorder.service;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -26,6 +28,10 @@ public class UserService {
 	
 	public boolean isUserExists(String userName) {
 		return userDao.isUserExists(userName);
+	}
+	
+	public List<User> getAllUsers() {
+		return userDao.getAllUsers();
 	}
 
 }

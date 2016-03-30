@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -59,6 +60,13 @@ public class UserDao {
 		String sqlStr = "SELECT * FROM t_user WHERE user_name=? AND user_password=?";
 		user = jdbcTemplate.query(sqlStr, new Object[] {userName, Encipher.encrypt(userPassword)}, new UserMapper()).get(0);
 		return user;
+	}
+	
+	public List<User> getAllUsers() {
+		List<User> users = null;
+		String sqlString = "SELECT * FROM t_user";
+		users = jdbcTemplate.query(sqlString, new UserMapper());
+		return users;
 	}
 
 }

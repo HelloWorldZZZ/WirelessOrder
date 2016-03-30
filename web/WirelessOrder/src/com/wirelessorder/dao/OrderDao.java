@@ -102,4 +102,18 @@ public class OrderDao {
 		return deList;
 	}
 	
+	public List<Order> getAllOrders() {
+		List<Order> orderList = null;
+		String sqlString = "SELECT * FROM t_order";
+		orderList = jdbcTemplate.query(sqlString, new OrderMapper());
+		return orderList;
+	}
+	
+	public List<OrderDetail> getAllOrderDetails() {
+		String sqlString = "SELECT * FROM t_order_detail";
+		List<OrderDetail> deList = null;
+		deList = jdbcTemplate.query(sqlString, new OrderDetailMapper());
+		return deList;
+	}
+	
 }
