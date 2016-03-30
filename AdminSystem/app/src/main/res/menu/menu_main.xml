@@ -2,13 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/setting"
-            android:title="添加菜品"></item>
+            android:id="@+id/meal"
+            android:icon="@drawable/list"
+            android:title="@string/meal_manage"></item>
         <item
-            android:id="@+id/upload"
-            android:title="查看菜品"></item>
+            android:id="@+id/update"
+            android:icon="@drawable/update"
+            android:title="@string/update_db"></item>
         <item
             android:id="@+id/logout"
-            android:title="注销"></item>
+            android:icon="@drawable/logout"
+            android:title="@string/log_out"></item>
     </group>
 </menu>
