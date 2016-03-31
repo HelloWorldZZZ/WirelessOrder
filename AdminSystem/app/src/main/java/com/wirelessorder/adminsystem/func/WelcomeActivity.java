@@ -8,12 +8,14 @@ import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.wirelessorder.adminsystem.R;
 import com.wirelessorder.adminsystem.service.AdminService;
 import com.wirelessorder.adminsystem.service.MealService;
 import com.wirelessorder.adminsystem.service.OrderService;
 import com.wirelessorder.adminsystem.service.UserService;
+import com.wirelessorder.adminsystem.utils.Utils;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -51,6 +53,11 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void run() {
                 if (isFirstTime) {
+                    if (!Utils.hasNetwork(mContext)) {
+                        Toast.makeText(mContext, getString(R.string.network_error),
+                                Toast.LENGTH_SHORT).show();
+                        finish();
+                    }
                     pDialog = ProgressDialog.show(mContext, null, "同步数据库", true, true);
                     pDialog.setCancelable(false);
                     pDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
@@ -70,7 +77,7 @@ public class WelcomeActivity extends AppCompatActivity {
     }
 
     private void loadMainActivity() {
-        Intent intent = new Intent(mContext, MainActivity.class);
+        Intent intent = new Intent(mContext, LoginActivity.class);
         startActivity(intent);
         WelcomeActivity.this.finish();
     }
@@ -114,6 +121,10 @@ public class WelcomeActivity extends AppCompatActivity {
             orderService.insertOrderDetails(orderDetailArray);
 
             pDialog.dismiss();
+            userService.closeDB();
+            adminService.closeDB();
+            mealService.closeDB();
+            orderService.closeDB();
         } catch (JSONException e) {
             e.printStackTrace();
         }

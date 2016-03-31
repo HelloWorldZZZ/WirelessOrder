@@ -48,4 +48,8 @@ public class OrderDao {
         cv.put("meal_amount", orderDetail.getMealAmount());
         mDB.insert(TABLE_ORDER_DETAIL, null, cv);
     }
+
+    public void closeDB() {
+        mDB.close();
+    }
 }

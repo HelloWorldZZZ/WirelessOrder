@@ -36,4 +36,8 @@ public class MealService {
             }
         }
     }
+
+    public void closeDB() {
+        mealDao.closeDB();
+    }
 }

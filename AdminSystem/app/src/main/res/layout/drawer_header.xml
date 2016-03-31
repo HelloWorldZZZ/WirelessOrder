@@ -29,6 +29,7 @@
             android:layout_gravity="center"
             android:paddingLeft="18dp"
             android:singleLine="true"
+            android:text="@string/admin"
             android:textColor="@color/text_color_white"
             android:textSize="30sp" />
 

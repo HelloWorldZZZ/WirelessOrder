@@ -52,4 +52,8 @@ public class OrderService {
             }
         }
     }
+
+    public void closeDB() {
+        orderDao.closeDB();
+    }
 }

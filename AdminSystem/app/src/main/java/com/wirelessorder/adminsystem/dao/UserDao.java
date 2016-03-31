@@ -32,4 +32,8 @@ public class UserDao {
         cv.put("user_phone", user.getUserPhone());
         mDB.insert(TABLE_NAME, null, cv);
     }
+
+    public void closeDB() {
+        mDB.close();
+    }
 }

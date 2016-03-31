@@ -34,4 +34,8 @@ public class UserService {
             }
         }
     }
+
+    public void closeDB() {
+        userDao.closeDB();
+    }
 }

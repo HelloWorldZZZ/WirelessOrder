@@ -1,6 +1,7 @@
 package com.wirelessorder.adminsystem.service;
 
 import android.content.Context;
+import android.database.Cursor;
 
 import com.wirelessorder.adminsystem.dao.AdminDao;
 import com.wirelessorder.adminsystem.po.Admin;
@@ -32,5 +33,18 @@ public class AdminService {
                 e.printStackTrace();
             }
         }
+    }
+
+    public boolean isAdminMatch(String adminName, String password) {
+        Cursor c = adminDao.getMatchAdmin(adminName, password);
+        if (c != null && c.moveToFirst()) {
+            c.close();
+            return true;
+        }
+        return false;
+    }
+
+    public void closeDB() {
+        adminDao.closeDB();
     }
 }

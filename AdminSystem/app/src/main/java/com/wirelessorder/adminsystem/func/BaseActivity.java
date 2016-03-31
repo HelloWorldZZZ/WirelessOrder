@@ -34,4 +34,12 @@ public class BaseActivity extends AppCompatActivity {
     public void setContentView(int layoutResID) {
         getLayoutInflater().inflate(layoutResID, mContainer, true);
     }
+
+    protected void setActionBarTitle(int resId) {
+        setActionBarTitle(getString(resId));
+    }
+
+    protected void setActionBarTitle(String title) {
+        getSupportActionBar().setTitle(title);
+    }
 }

@@ -34,4 +34,8 @@ public class MealDao {
         cv.put("meal_info", meal.getMealInfo());
         mDB.insert(TABLE_NAME, null, cv);
     }
+
+    public void closeDB() {
+        mDB.close();
+    }
 }

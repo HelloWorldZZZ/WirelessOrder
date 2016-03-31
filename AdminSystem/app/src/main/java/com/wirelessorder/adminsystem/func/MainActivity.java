@@ -1,6 +1,5 @@
 package com.wirelessorder.adminsystem.func;
 
-import android.database.sqlite.SQLiteDatabase;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -9,11 +8,8 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 
 import com.wirelessorder.adminsystem.R;
-import com.wirelessorder.adminsystem.utils.DataBaseHelper;
 
 public class MainActivity extends ActionBarActivity {
-    private DataBaseHelper mDataBaseHelper;
-    private SQLiteDatabase mDB;
     private Toolbar mToolbar;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
@@ -21,9 +17,11 @@ public class MainActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mDataBaseHelper = new DataBaseHelper(this);
-        mDB = mDataBaseHelper.getWritableDatabase();
         setContentView(R.layout.activity_main);
+        initView();
+    }
+
+    private void initView() {
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         mToolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(mToolbar);

@@ -2,10 +2,12 @@ package com.wirelessorder.adminsystem.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.wirelessorder.adminsystem.po.Admin;
 import com.wirelessorder.adminsystem.utils.DataBaseHelper;
+import com.wirelessorder.adminsystem.utils.Utils;
 
 /**
  * Created by triplez on 16-3-30.
@@ -30,5 +32,15 @@ public class AdminDao {
         cv.put("admin_password", admin.getAdminPassword());
         cv.put("admin_name", admin.getAdminName());
         mDB.insert(TABLE_NAME, null, cv);
+    }
+
+    public Cursor getMatchAdmin(String adminName, String password) {
+        String sql = "SELECT * FROM t_admin WHERE admin_name=? AND admin_password=?";
+        Cursor c = mDB.rawQuery(sql, new String[]{adminName, Utils.encrypt(password)});
+        return c;
+    }
+
+    public void closeDB() {
+        mDB.close();
     }
 }
