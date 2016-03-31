@@ -3,15 +3,15 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/meal"
-            android:icon="@drawable/list"
+            android:icon="@mipmap/list"
             android:title="@string/meal_manage"></item>
         <item
             android:id="@+id/update"
-            android:icon="@drawable/update"
+            android:icon="@mipmap/update"
             android:title="@string/update_db"></item>
         <item
             android:id="@+id/logout"
-            android:icon="@drawable/logout"
+            android:icon="@mipmap/logout"
             android:title="@string/log_out"></item>
     </group>
 </menu>

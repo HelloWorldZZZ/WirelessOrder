@@ -17,7 +17,7 @@
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:layout_gravity="center"
-            android:src="@drawable/admin"
+            android:src="@mipmap/admin"
             android:layout_marginLeft="18dp" />
 
         <TextView
