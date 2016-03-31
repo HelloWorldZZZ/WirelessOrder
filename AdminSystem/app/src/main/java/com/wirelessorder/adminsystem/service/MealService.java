@@ -1,6 +1,7 @@
 package com.wirelessorder.adminsystem.service;
 
 import android.content.Context;
+import android.database.Cursor;
 
 import com.wirelessorder.adminsystem.dao.MealDao;
 import com.wirelessorder.adminsystem.po.Meal;
@@ -35,6 +36,11 @@ public class MealService {
                 e.printStackTrace();
             }
         }
+    }
+
+    public int getMealAmount() {
+        Cursor c = mealDao.getAllMeals();
+        return c.getCount();
     }
 
     public void closeDB() {

@@ -1,6 +1,7 @@
 package com.wirelessorder.adminsystem.service;
 
 import android.content.Context;
+import android.database.Cursor;
 
 import com.wirelessorder.adminsystem.dao.OrderDao;
 import com.wirelessorder.adminsystem.po.Order;
@@ -51,6 +52,23 @@ public class OrderService {
                 e.printStackTrace();
             }
         }
+    }
+
+    public int getOrderAmount() {
+        Cursor c = orderDao.getAllOrders();
+        return c.getCount();
+    }
+
+    public double getAllOrderSum() {
+        Cursor c = orderDao.getAllOrders();
+        Double sum = 0.0;
+        if (c != null) {
+            int index = c.getColumnIndex("order_sum");
+            while (c.moveToNext()) {
+                sum += c.getDouble(index);
+            }
+        }
+        return sum;
     }
 
     public void closeDB() {

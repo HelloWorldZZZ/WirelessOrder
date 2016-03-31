@@ -2,10 +2,12 @@ package com.wirelessorder.adminsystem.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.wirelessorder.adminsystem.po.User;
 import com.wirelessorder.adminsystem.utils.DataBaseHelper;
+import com.wirelessorder.adminsystem.utils.Utils;
 
 /**
  * Created by triplez on 16-3-30.
@@ -31,6 +33,12 @@ public class UserDao {
         cv.put("user_name", user.getUserName());
         cv.put("user_phone", user.getUserPhone());
         mDB.insert(TABLE_NAME, null, cv);
+    }
+
+    public Cursor getAllUsers() {
+        String sql = "SELECT * FROM t_user";
+        Cursor c = mDB.rawQuery(sql, null);
+        return c;
     }
 
     public void closeDB() {

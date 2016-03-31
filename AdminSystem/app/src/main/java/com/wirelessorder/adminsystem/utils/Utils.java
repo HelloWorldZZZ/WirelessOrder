@@ -1,6 +1,7 @@
 package com.wirelessorder.adminsystem.utils;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 

@@ -1,6 +1,7 @@
 package com.wirelessorder.adminsystem.service;
 
 import android.content.Context;
+import android.database.Cursor;
 
 import com.wirelessorder.adminsystem.dao.UserDao;
 import com.wirelessorder.adminsystem.po.User;
@@ -33,6 +34,11 @@ public class UserService {
                 e.printStackTrace();
             }
         }
+    }
+
+    public int getUserAmount() {
+        Cursor c = userDao.getAllUsers();
+        return c.getCount();
     }
 
     public void closeDB() {

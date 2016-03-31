@@ -2,6 +2,7 @@ package com.wirelessorder.adminsystem.dao;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
 import com.wirelessorder.adminsystem.po.Meal;
@@ -33,6 +34,12 @@ public class MealDao {
         cv.put("meal_image", meal.getMealImage());
         cv.put("meal_info", meal.getMealInfo());
         mDB.insert(TABLE_NAME, null, cv);
+    }
+
+    public Cursor getAllMeals() {
+        String sql = "SELECT * FROM t_meal";
+        Cursor c = mDB.rawQuery(sql, null);
+        return c;
     }
 
     public void closeDB() {
