@@ -15,6 +15,6 @@
     <string name="hello_world">Hello world!</string>
     <string name="drawer_open">drawer_open</string>
     <string name="drawer_close">drawer_close</string>
-    <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_login">登录界面</string>
     <string name="action_settings">Settings</string>
 </resources>

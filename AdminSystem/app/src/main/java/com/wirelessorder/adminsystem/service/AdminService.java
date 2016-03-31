@@ -36,12 +36,11 @@ public class AdminService {
     }
 
     public boolean isAdminMatch(String adminName, String password) {
-        Cursor c = adminDao.getMatchAdmin(adminName, password);
-        if (c != null && c.moveToFirst()) {
-            c.close();
-            return true;
+        Admin admin = adminDao.getMatchAdmin(adminName, password);
+        if (admin.getAdminName().isEmpty()) {
+            return false;
         }
-        return false;
+        return true;
     }
 
     public void closeDB() {

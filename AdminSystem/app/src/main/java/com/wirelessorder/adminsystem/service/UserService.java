@@ -37,8 +37,7 @@ public class UserService {
     }
 
     public int getUserAmount() {
-        Cursor c = userDao.getAllUsers();
-        return c.getCount();
+        return userDao.getAllUsers().size();
     }
 
     public void closeDB() {

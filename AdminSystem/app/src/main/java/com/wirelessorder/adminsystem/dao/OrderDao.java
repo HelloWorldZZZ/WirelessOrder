@@ -9,6 +9,9 @@ import com.wirelessorder.adminsystem.po.Order;
 import com.wirelessorder.adminsystem.po.OrderDetail;
 import com.wirelessorder.adminsystem.utils.DataBaseHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by triplez on 16-3-30.
  */
@@ -50,10 +53,22 @@ public class OrderDao {
         mDB.insert(TABLE_ORDER_DETAIL, null, cv);
     }
 
-    public Cursor getAllOrders() {
+    public List<Order> getAllOrders() {
+        List<Order> orderList = new ArrayList<>();
         String sql = "SELECT * FROM t_order";
         Cursor c = mDB.rawQuery(sql, null);
-        return c;
+        while(c.moveToNext()) {
+            int orderId = c.getInt(c.getColumnIndex("order_id"));
+            int userId = c.getInt(c.getColumnIndex("user_id"));
+            int order_user_amount = c.getInt(c.getColumnIndex("order_user_amount"));
+            double order_sum = c.getDouble(c.getColumnIndex("order_sum"));
+            String order_date = c.getString(c.getColumnIndex("order_date"));
+            Order order = new Order(userId, order_user_amount, order_sum, order_date);
+            order.setOrderId(orderId);
+            orderList.add(order);
+        }
+        c.close();
+        return orderList;
     }
 
     public void closeDB() {

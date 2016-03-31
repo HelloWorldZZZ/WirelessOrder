@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 import com.wirelessorder.adminsystem.po.Meal;
 import com.wirelessorder.adminsystem.utils.DataBaseHelper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by triplez on 16-3-30.
  */
@@ -36,10 +39,23 @@ public class MealDao {
         mDB.insert(TABLE_NAME, null, cv);
     }
 
-    public Cursor getAllMeals() {
+    public List<Meal> getAllMeals() {
+        List<Meal> mealList = new ArrayList<>();
         String sql = "SELECT * FROM t_meal";
         Cursor c = mDB.rawQuery(sql, null);
-        return c;
+        while (c.moveToNext()) {
+            int mealId = c.getInt(c.getColumnIndex("meal_id"));
+            int mealType = c.getInt(c.getColumnIndex("meal_type_id"));
+            String mealName = c.getString(c.getColumnIndex("meal_name"));
+            double mealPrice = c.getDouble(c.getColumnIndex("meal_price"));
+            String mealImage = c.getString(c.getColumnIndex("meal_image"));
+            String mealInfo = c.getString(c.getColumnIndex("meal_info"));
+            Meal meal = new Meal(mealType, mealName, mealPrice, mealImage, mealInfo);
+            meal.setMealId(mealId);
+            mealList.add(meal);
+        }
+        c.close();
+        return mealList;
     }
 
     public void closeDB() {

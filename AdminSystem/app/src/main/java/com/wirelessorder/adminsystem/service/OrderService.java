@@ -11,6 +11,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.List;
+
 /**
  * Created by triplez on 16-3-30.
  */
@@ -55,18 +57,14 @@ public class OrderService {
     }
 
     public int getOrderAmount() {
-        Cursor c = orderDao.getAllOrders();
-        return c.getCount();
+        return orderDao.getAllOrders().size();
     }
 
     public double getAllOrderSum() {
-        Cursor c = orderDao.getAllOrders();
+        List<Order> orderList = orderDao.getAllOrders();
         Double sum = 0.0;
-        if (c != null) {
-            int index = c.getColumnIndex("order_sum");
-            while (c.moveToNext()) {
-                sum += c.getDouble(index);
-            }
+        for (Order order : orderList) {
+            sum += order.getOrderSum();
         }
         return sum;
     }

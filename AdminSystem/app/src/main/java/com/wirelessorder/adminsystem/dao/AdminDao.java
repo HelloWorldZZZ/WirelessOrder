@@ -34,10 +34,17 @@ public class AdminDao {
         mDB.insert(TABLE_NAME, null, cv);
     }
 
-    public Cursor getMatchAdmin(String adminName, String password) {
+    public Admin getMatchAdmin(String adminName, String password) {
         String sql = "SELECT * FROM t_admin WHERE admin_name=? AND admin_password=?";
+        Admin admin = new Admin();
         Cursor c = mDB.rawQuery(sql, new String[]{adminName, Utils.encrypt(password)});
-        return c;
+        if (c != null && c.moveToFirst()) {
+            admin.setAdminId(c.getInt(c.getColumnIndex("admin_id")));
+            admin.setAdminName(c.getString(c.getColumnIndex("admin_name")));
+            admin.setAdminPassword(c.getString(c.getColumnIndex("admin_password")));
+        }
+        c.close();
+        return admin;
     }
 
     public void closeDB() {

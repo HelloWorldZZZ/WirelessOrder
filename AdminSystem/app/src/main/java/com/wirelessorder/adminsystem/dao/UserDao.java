@@ -9,6 +9,9 @@ import com.wirelessorder.adminsystem.po.User;
 import com.wirelessorder.adminsystem.utils.DataBaseHelper;
 import com.wirelessorder.adminsystem.utils.Utils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by triplez on 16-3-30.
  */
@@ -35,10 +38,21 @@ public class UserDao {
         mDB.insert(TABLE_NAME, null, cv);
     }
 
-    public Cursor getAllUsers() {
+    public List<User> getAllUsers() {
+        List<User> userList = new ArrayList<>();
         String sql = "SELECT * FROM t_user";
         Cursor c = mDB.rawQuery(sql, null);
-        return c;
+        while (c.moveToNext()) {
+            int userId = c.getInt(c.getColumnIndex("user_id"));
+            String userName = c.getString(c.getColumnIndex("user_name"));
+            String userPassword = c.getString(c.getColumnIndex("user_password"));
+            String userPhone = c.getString(c.getColumnIndex("user_phone"));
+            User user = new User(userName, userPassword, userPhone);
+            user.setUserId(userId);
+            userList.add(user);
+        }
+        c.close();
+        return userList;
     }
 
     public void closeDB() {

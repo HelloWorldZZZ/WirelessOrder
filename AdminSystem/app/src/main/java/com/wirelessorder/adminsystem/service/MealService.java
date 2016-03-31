@@ -39,8 +39,7 @@ public class MealService {
     }
 
     public int getMealAmount() {
-        Cursor c = mealDao.getAllMeals();
-        return c.getCount();
+        return mealDao.getAllMeals().size();
     }
 
     public void closeDB() {
