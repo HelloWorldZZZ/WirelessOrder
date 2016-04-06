@@ -39,8 +39,8 @@ public class MealDao {
         mDB.insert(TABLE_NAME, null, cv);
     }
 
-    public List<Meal> getAllMeals() {
-        List<Meal> mealList = new ArrayList<>();
+    public ArrayList<Meal> getAllMeals() {
+        ArrayList<Meal> mealList = new ArrayList<>();
         String sql = "SELECT * FROM t_meal";
         Cursor c = mDB.rawQuery(sql, null);
         while (c.moveToNext()) {

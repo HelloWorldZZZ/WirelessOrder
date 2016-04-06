@@ -2,6 +2,7 @@ package com.wirelessorder.adminsystem.func;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -71,6 +72,8 @@ public class MainActivity extends ActionBarActivity {
         public boolean onNavigationItemSelected(MenuItem menuItem) {
             switch (menuItem.getItemId()) {
                 case R.id.meal:
+                    Intent intent = new Intent(mContext, MenuActivity.class);
+                    startActivity(intent);
                     break;
                 case R.id.update:
                     break;

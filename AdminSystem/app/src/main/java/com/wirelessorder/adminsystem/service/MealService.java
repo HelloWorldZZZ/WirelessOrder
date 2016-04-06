@@ -10,6 +10,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by triplez on 16-3-30.
  */
@@ -40,6 +43,10 @@ public class MealService {
 
     public int getMealAmount() {
         return mealDao.getAllMeals().size();
+    }
+
+    public ArrayList getAllMeals() {
+        return mealDao.getAllMeals();
     }
 
     public void closeDB() {

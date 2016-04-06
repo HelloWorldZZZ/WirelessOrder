@@ -35,6 +35,14 @@
             android:name=".func.LoginActivity"
             android:label="@string/title_activity_login" >
         </activity>
+        <activity
+            android:name=".func.MenuActivity"
+            android:label="@string/title_activity_menu" >
+        </activity>
+        <activity
+            android:name=".func.MealAddActivity"
+            android:label="@string/title_activity_meal_add" >
+        </activity>
     </application>
 
 </manifest>
