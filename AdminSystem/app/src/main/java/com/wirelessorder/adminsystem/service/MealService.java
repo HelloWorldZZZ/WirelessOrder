@@ -41,12 +41,24 @@ public class MealService {
         }
     }
 
+    public void insertMeal(Meal meal) {
+        mealDao.insertMeal(meal);
+    }
+
     public int getMealAmount() {
         return mealDao.getAllMeals().size();
     }
 
     public ArrayList getAllMeals() {
         return mealDao.getAllMeals();
+    }
+
+    public void updateMeal(Meal meal) {
+        mealDao.updateMeal(meal);
+    }
+
+    public void deleteMeal(int mealId) {
+        mealDao.deleteMeal(mealId);
     }
 
     public void closeDB() {

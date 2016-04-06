@@ -1,14 +1,12 @@
 package com.wirelessorder.adminsystem.po;
 
-import android.graphics.Bitmap;
-import android.widget.ImageView;
+import java.io.Serializable;
 
-public class Meal {
+public class Meal implements Serializable {
 	private int mealId;
 	private int mealType;
 	private String mealName;
 	private double mealPrice;
-	private ImageView mealView;
 	public Meal(int mealType, String mealName, double mealPrice,
 			String mealImage, String mealInfo) {
 		super();
@@ -59,12 +57,4 @@ public class Meal {
 		this.mealInfo = mealInfo;
 	}
 	private String mealInfo;
-
-	public ImageView getMealView() {
-		return mealView;
-	}
-
-	public void setMealView(ImageView mealView) {
-		this.mealView = mealView;
-	}
 }

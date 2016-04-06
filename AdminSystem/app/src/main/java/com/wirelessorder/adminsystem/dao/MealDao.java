@@ -39,6 +39,17 @@ public class MealDao {
         mDB.insert(TABLE_NAME, null, cv);
     }
 
+    public void updateMeal(Meal meal) {
+        String sql = "UPDATE t_meal SET meal_name=?, meal_price=?," +
+                "meal_info=? WHERE meal_id=?";
+        mDB.execSQL(sql, new Object[]{meal.getMealName(), meal.getMealPrice(),
+                meal.getMealInfo(), meal.getMealId()});
+    }
+
+    public void deleteMeal(int mealId) {
+        mDB.delete(TABLE_NAME, "meal_id=?", new String[] {String.valueOf(mealId)});
+    }
+
     public ArrayList<Meal> getAllMeals() {
         ArrayList<Meal> mealList = new ArrayList<>();
         String sql = "SELECT * FROM t_meal";

@@ -73,7 +73,9 @@ public class WelcomeActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String s) {
-                        insertDB(s);
+                        Utils.syncData(mContext, s);
+                        pDialog.dismiss();
+                        mSp.edit().putBoolean("firstStartup", false).commit();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -89,37 +91,5 @@ public class WelcomeActivity extends AppCompatActivity {
         Intent intent = new Intent(mContext, LoginActivity.class);
         startActivity(intent);
         WelcomeActivity.this.finish();
-    }
-
-    private void insertDB(String result) {
-        try {
-            JSONObject resultJson = new JSONObject(result);
-
-            JSONArray userArray = resultJson.getJSONArray("t_user");
-            JSONArray adminArray = resultJson.getJSONArray("t_admin");
-            JSONArray mealArray = resultJson.getJSONArray("t_meal");
-            JSONArray orderArray = resultJson.getJSONArray("t_order");
-            JSONArray orderDetailArray = resultJson.getJSONArray("t_order_detail");
-
-            UserService userService = new UserService(mContext);
-            AdminService adminService = new AdminService(mContext);
-            MealService mealService = new MealService(mContext);
-            OrderService orderService = new OrderService(mContext);
-
-            userService.insertUsers(userArray);
-            adminService.insertAdmins(adminArray);
-            mealService.insertMeals(mealArray);
-            orderService.insertOrders(orderArray);
-            orderService.insertOrderDetails(orderDetailArray);
-
-            pDialog.dismiss();
-            userService.closeDB();
-            adminService.closeDB();
-            mealService.closeDB();
-            orderService.closeDB();
-            mSp.edit().putBoolean("firstStartup", false).commit();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
     }
 }

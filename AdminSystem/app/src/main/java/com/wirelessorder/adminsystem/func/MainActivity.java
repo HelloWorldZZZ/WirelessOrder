@@ -1,5 +1,6 @@
 package com.wirelessorder.adminsystem.func;
 
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -15,11 +16,19 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.wirelessorder.adminsystem.R;
 import com.wirelessorder.adminsystem.service.MealService;
 import com.wirelessorder.adminsystem.service.OrderService;
 import com.wirelessorder.adminsystem.service.UserService;
+import com.wirelessorder.adminsystem.utils.Utils;
 
 public class MainActivity extends ActionBarActivity {
     private Context mContext;
@@ -66,6 +75,12 @@ public class MainActivity extends ActionBarActivity {
         orderService.closeDB();
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        initInfoView();
+    }
+
     private class AdminNavigationListener implements NavigationView.OnNavigationItemSelectedListener {
 
         @Override
@@ -76,6 +91,7 @@ public class MainActivity extends ActionBarActivity {
                     startActivity(intent);
                     break;
                 case R.id.update:
+                    syncData();
                     break;
                 case R.id.logout:
                     showExitDialog();
@@ -85,6 +101,29 @@ public class MainActivity extends ActionBarActivity {
             mDrawerLayout.closeDrawers();//关闭抽屉
             return true;
         }
+    }
+
+    private void syncData() {
+        final ProgressDialog pDialog = ProgressDialog.show(mContext, null, "同步数据库", true, true);
+        pDialog.setCancelable(false);
+        String url = "http://www.zhouzezhou.site/WirelessOrder/servlet/DBSyncServlet";
+        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        Utils.syncData(mContext, s);
+                        pDialog.dismiss();
+                        Toast.makeText(mContext, "同步成功", Toast.LENGTH_SHORT).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(mContext, "同步失败", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+        requestQueue.add(stringRequest);
     }
 
     @Override
