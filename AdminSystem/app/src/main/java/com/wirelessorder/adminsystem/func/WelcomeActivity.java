@@ -10,6 +10,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.wirelessorder.adminsystem.R;
 import com.wirelessorder.adminsystem.service.AdminService;
 import com.wirelessorder.adminsystem.service.MealService;
@@ -17,36 +23,21 @@ import com.wirelessorder.adminsystem.service.OrderService;
 import com.wirelessorder.adminsystem.service.UserService;
 import com.wirelessorder.adminsystem.utils.Utils;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.DefaultHttpClient;
-import org.apache.http.protocol.HTTP;
-import org.apache.http.util.EntityUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-
 public class WelcomeActivity extends AppCompatActivity {
     private ProgressDialog pDialog;
     private Context mContext;
-
-    private Thread DBSyncThread = new Thread(new Runnable() {
-        @Override
-        public void run() {
-            getDataFromServer();
-        }
-    });
+    private SharedPreferences mSp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
         setContentView(R.layout.activity_welcome);
-        final SharedPreferences mSp = getSharedPreferences("app_info", MODE_PRIVATE);
+        mSp = getSharedPreferences("app_info", MODE_PRIVATE);
         final boolean isFirstTime = mSp.getBoolean("firstStartup", true);
         new Handler().postDelayed(new Runnable() {
 
@@ -66,8 +57,7 @@ public class WelcomeActivity extends AppCompatActivity {
                             loadMainActivity();
                         }
                     });
-                    new Thread(DBSyncThread).start();
-                    mSp.edit().putBoolean("firstStartup", false).commit();
+                    getDataFromServer();
                 } else {
                     loadMainActivity();
                 }
@@ -76,27 +66,29 @@ public class WelcomeActivity extends AppCompatActivity {
         }, 2500);
     }
 
+    private void getDataFromServer() {
+        String url = "http://www.zhouzezhou.site/WirelessOrder/servlet/DBSyncServlet";
+        RequestQueue requestQueue = Volley.newRequestQueue(mContext);
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String s) {
+                        insertDB(s);
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                Toast.makeText(mContext, "同步失败", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        });
+        requestQueue.add(stringRequest);
+    }
+
     private void loadMainActivity() {
         Intent intent = new Intent(mContext, LoginActivity.class);
         startActivity(intent);
         WelcomeActivity.this.finish();
-    }
-
-    private void getDataFromServer() {
-        String url = "http://www.zhouzezhou.site/WirelessOrder/servlet/DBSyncServlet";
-        HttpClient client = new DefaultHttpClient();
-        HttpPost httpPost = new HttpPost(url);
-        HttpResponse response;
-        try {
-            response = client.execute(httpPost);
-            if (response != null && response.getStatusLine().getStatusCode() == 200) {
-                HttpEntity httpEntity = response.getEntity();
-                String result = EntityUtils.toString(httpEntity, HTTP.UTF_8);
-                insertDB(result);
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
     private void insertDB(String result) {
@@ -125,6 +117,7 @@ public class WelcomeActivity extends AppCompatActivity {
             adminService.closeDB();
             mealService.closeDB();
             orderService.closeDB();
+            mSp.edit().putBoolean("firstStartup", false).commit();
         } catch (JSONException e) {
             e.printStackTrace();
         }
