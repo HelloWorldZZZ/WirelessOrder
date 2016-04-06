@@ -2,7 +2,10 @@ package com.wirelessorder.adminsystem.func;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v4.util.LruCache;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +22,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.ImageLoader;
+import com.android.volley.toolbox.ImageRequest;
+import com.android.volley.toolbox.NetworkImageView;
+import com.android.volley.toolbox.Volley;
 import com.wirelessorder.adminsystem.R;
 import com.wirelessorder.adminsystem.po.Meal;
 import com.wirelessorder.adminsystem.service.MealService;
@@ -119,8 +129,13 @@ public class MenuActivity extends BaseActivity {
         {
             // 给ViewHolder设置元素
             final Meal p = mealList.get(i);
+            RequestQueue requestQueue = Volley.newRequestQueue(mContext);
+            ImageLoader imageLoader = new ImageLoader(requestQueue, new BitmapCache());
             viewHolder.mealName.setText(p.getMealName());
             viewHolder.mealPrice.setText("￥ " + String.valueOf(p.getMealPrice()));
+            viewHolder.mealImage.setDefaultImageResId(R.mipmap.image_loading);
+            viewHolder.mealImage.setErrorImageResId(R.mipmap.error);
+            viewHolder.mealImage.setImageUrl(p.getMealImage(), imageLoader);
             viewHolder.rootView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -141,7 +156,7 @@ public class MenuActivity extends BaseActivity {
                 extends RecyclerView.ViewHolder
         {
             public TextView mealName, mealPrice;
-            public ImageView mealImage;
+            public NetworkImageView mealImage;
             public View rootView;
 
 
@@ -149,7 +164,7 @@ public class MenuActivity extends BaseActivity {
             {
                 super(v);
                 rootView = v;
-                mealImage = (ImageView) v.findViewById(R.id.mealImage);
+                mealImage = (NetworkImageView) v.findViewById(R.id.mealImage);
                 mealName = (TextView) v.findViewById(R.id.mealName);
                 mealPrice = (TextView) v.findViewById(R.id.mealPrice);
             }
@@ -159,6 +174,32 @@ public class MenuActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    public class BitmapCache implements ImageLoader.ImageCache {
+
+        private LruCache<String, Bitmap> mCache;
+
+        public BitmapCache() {
+            int maxSize = 10 * 1024 * 1024;
+            mCache = new LruCache<String, Bitmap>(maxSize) {
+                @Override
+                protected int sizeOf(String key, Bitmap bitmap) {
+                    return bitmap.getRowBytes() * bitmap.getHeight();
+                }
+            };
+        }
+
+        @Override
+        public Bitmap getBitmap(String url) {
+            return mCache.get(url);
+        }
+
+        @Override
+        public void putBitmap(String url, Bitmap bitmap) {
+            mCache.put(url, bitmap);
+        }
+
     }
 
 }

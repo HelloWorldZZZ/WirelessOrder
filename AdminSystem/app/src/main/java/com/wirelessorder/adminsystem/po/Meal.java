@@ -1,10 +1,14 @@
 package com.wirelessorder.adminsystem.po;
 
+import android.graphics.Bitmap;
+import android.widget.ImageView;
+
 public class Meal {
 	private int mealId;
 	private int mealType;
 	private String mealName;
 	private double mealPrice;
+	private ImageView mealView;
 	public Meal(int mealType, String mealName, double mealPrice,
 			String mealImage, String mealInfo) {
 		super();
@@ -56,4 +60,11 @@ public class Meal {
 	}
 	private String mealInfo;
 
+	public ImageView getMealView() {
+		return mealView;
+	}
+
+	public void setMealView(ImageView mealView) {
+		this.mealView = mealView;
+	}
 }
