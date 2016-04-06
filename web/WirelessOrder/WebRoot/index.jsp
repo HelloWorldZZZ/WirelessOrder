@@ -114,5 +114,14 @@
 			<br /> <input type="submit" value="获取所有数据">
 		</center>
 	</form>
+	<form action="servlet/MealModifyServlet" method="post">
+		<center>
+			<div class="inputWrap">
+				<input type=hidden name="order" autofocus
+					required>
+			</div>
+			<br /> <input type="submit" value="修改菜品">
+		</center>
+	</form>
 </body>
 </html>

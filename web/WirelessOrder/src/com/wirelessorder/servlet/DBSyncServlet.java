@@ -36,7 +36,6 @@ public class DBSyncServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String type = request.getParameter("sync");
 		response.setContentType("text/html;charset=UTF-8;");
 		List<User> userList = userService.getAllUsers();
 		List<Admin> adminList = adminService.getAllAdmins();

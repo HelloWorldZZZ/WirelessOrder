@@ -28,5 +28,9 @@ public class MealService {
 	public Meal getMealById(int mealId) {
 		return mealDao.getMealById(mealId);
 	}
+	
+	public void updateMeal(Meal meal) {
+		mealDao.updateMeal(meal);
+	}
 
 }

@@ -45,6 +45,10 @@
 		<servlet-name>DBSyncServlet</servlet-name>
 		<servlet-class>com.wirelessorder.servlet.DBSyncServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>MealModifyServlet</servlet-name>
+		<servlet-class>com.wirelessorder.servlet.MealModifyServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>UserLoginServlet</servlet-name>
@@ -73,6 +77,10 @@
 	<servlet-mapping>
 		<servlet-name>DBSyncServlet</servlet-name>
 		<url-pattern>/servlet/DBSyncServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MealModifyServlet</servlet-name>
+		<url-pattern>/servlet/MealModifyServlet</url-pattern>
 	</servlet-mapping>
 	
 </web-app>
