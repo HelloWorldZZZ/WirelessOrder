@@ -21,8 +21,8 @@ public class MealService {
 		return mealDao.getAllMealByType(mealType);
 	}
 	
-	public void addMeal(Meal meal) {
-		mealDao.addMeal(meal);
+	public int addMeal(Meal meal) {
+		return mealDao.addMeal(meal);
 	}
 	
 	public Meal getMealById(int mealId) {

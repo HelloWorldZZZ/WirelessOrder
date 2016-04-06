@@ -73,7 +73,7 @@
 			<br /> <input type="submit" value="查看菜单">
 		</center>
 	</form>
-	<form action="servlet/MealAddServlet" method="post">
+	<form action="servlet/MealAddServlet" method="post" enctype="multipart/form-data">
 		<center>
 			<div class="inputWrap">
 				<input type="text" name="mealType" placeholder="请输入菜品类型" autofocus
@@ -88,7 +88,7 @@
 					required>
 			</div>
 			<div class="inputWrap">
-				<input type="text" name="mealImage" placeholder="图片" autofocus>
+				<input type="file" name="mealImage" >
 			</div>
 			<div class="inputWrap">
 				<input type="text" name="mealInfo" placeholder="请输入菜品信息" autofocus>

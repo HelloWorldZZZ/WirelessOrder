@@ -46,8 +46,6 @@ public class OrderDao {
 			}
 		}, keyHolder);
 		return keyHolder.getKey().intValue();
-		/*jdbcTemplate.update(sqlString, new Object[]{order.getUserId(), order.getUserAmount(), order.getOrderSum(), order.getOrderDate()},
-				Statement.RETURN_GENERATED_KEYS);*/
 	}
 	
 	public List<Order> getOrderByUserId(int userId) {
