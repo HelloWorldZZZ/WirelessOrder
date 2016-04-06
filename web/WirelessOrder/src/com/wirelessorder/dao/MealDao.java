@@ -74,5 +74,10 @@ public class MealDao {
 		mealList = jdbcTemplate.query(sqlString, new Object[]{mealId}, new MealMapper());
 		return mealList.get(0);
 	}
+	
+	public void deleteMeal(int mealId) {
+		String sqlString = "DELETE FROM t_meal WHERE meal_id=?";
+		jdbcTemplate.update(sqlString, new Object[]{mealId});
+	}
 
 }

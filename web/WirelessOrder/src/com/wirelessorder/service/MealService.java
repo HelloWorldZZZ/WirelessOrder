@@ -32,5 +32,8 @@ public class MealService {
 	public void updateMeal(Meal meal) {
 		mealDao.updateMeal(meal);
 	}
-
+	
+	public void deleteMeal(int mealId) {
+		mealDao.deleteMeal(mealId);
+	}
 }

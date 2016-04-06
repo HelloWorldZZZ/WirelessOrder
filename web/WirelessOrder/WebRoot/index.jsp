@@ -123,5 +123,14 @@
 			<br /> <input type="submit" value="修改菜品">
 		</center>
 	</form>
+	<form action="servlet/MealDeleteServlet" method="post">
+		<center>
+			<div class="inputWrap">
+				<input type=text name="meal_id" autofocus
+					required>
+			</div>
+			<br /> <input type="submit" value="删除菜品">
+		</center>
+	</form>
 </body>
 </html>

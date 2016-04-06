@@ -49,6 +49,10 @@
 		<servlet-name>MealModifyServlet</servlet-name>
 		<servlet-class>com.wirelessorder.servlet.MealModifyServlet</servlet-class>
 	</servlet>
+	<servlet>
+		<servlet-name>MealDeleteServlet</servlet-name>
+		<servlet-class>com.wirelessorder.servlet.MealDeleteServlet</servlet-class>
+	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>UserLoginServlet</servlet-name>
@@ -81,6 +85,10 @@
 	<servlet-mapping>
 		<servlet-name>MealModifyServlet</servlet-name>
 		<url-pattern>/servlet/MealModifyServlet</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>MealDeleteServlet</servlet-name>
+		<url-pattern>/servlet/MealDeleteServlet</url-pattern>
 	</servlet-mapping>
 	
 </web-app>

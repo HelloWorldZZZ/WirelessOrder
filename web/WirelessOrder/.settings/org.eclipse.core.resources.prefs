@@ -1,8 +1,9 @@
-#Wed Apr 06 16:58:52 CST 2016
+#Thu Apr 07 01:59:04 CST 2016
 eclipse.preferences.version=1
 encoding//src/com/wirelessorder/servlet/AdminLoginServlet.java=UTF-8
 encoding//src/com/wirelessorder/servlet/DBSyncServlet.java=UTF-8
 encoding//src/com/wirelessorder/servlet/MealAddServlet.java=UTF-8
+encoding//src/com/wirelessorder/servlet/MealDeleteServlet.java=UTF-8
 encoding//src/com/wirelessorder/servlet/MealModifyServlet.java=UTF-8
 encoding//src/com/wirelessorder/servlet/MenuServlet.java=UTF-8
 encoding//src/com/wirelessorder/servlet/NewOrderServlet.java=UTF-8
