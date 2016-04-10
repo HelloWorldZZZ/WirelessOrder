@@ -44,6 +44,10 @@
             android:name=".func.MealAddActivity"
             android:label="@string/title_activity_meal_add" >
         </activity>
+        <provider
+            android:authorities="com.wirelessorder.adminsystem.wirelessprovider"
+            android:name=".func.WirelessProvider"
+            android:exported="true"></provider>
     </application>
 
 </manifest>

@@ -40,6 +40,10 @@ public class UserService {
         return userDao.getAllUsers().size();
     }
 
+    public Cursor getMatchUser(String userName, String password) {
+        return userDao.getMatchUser(userName, password);
+    }
+
     public void closeDB() {
         userDao.closeDB();
     }

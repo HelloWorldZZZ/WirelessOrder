@@ -61,6 +61,14 @@ public class MealService {
         mealDao.deleteMeal(mealId);
     }
 
+    public Cursor getAllMealsCursor() {
+        return mealDao.getAllMealsCursor();
+    }
+
+    public Cursor getMealsByType(String type) {
+        return mealDao.getMealsByType(type);
+    }
+
     public void closeDB() {
         mealDao.closeDB();
     }

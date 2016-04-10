@@ -47,7 +47,7 @@ public class MealDao {
     }
 
     public void deleteMeal(int mealId) {
-        mDB.delete(TABLE_NAME, "meal_id=?", new String[] {String.valueOf(mealId)});
+        mDB.delete(TABLE_NAME, "meal_id=?", new String[]{String.valueOf(mealId)});
     }
 
     public ArrayList<Meal> getAllMeals() {
@@ -67,6 +67,18 @@ public class MealDao {
         }
         c.close();
         return mealList;
+    }
+
+    public Cursor getAllMealsCursor() {
+        String sql = "SELECT * FROM t_meal";
+        Cursor c = mDB.rawQuery(sql, null);
+        return c;
+    }
+
+    public Cursor getMealsByType(String mealType) {
+        String sql = "SELECT * FROM t_meal WHERE meal_type_id=?";
+        Cursor c = mDB.rawQuery(sql, new String[] {mealType});
+        return c;
     }
 
     public void closeDB() {

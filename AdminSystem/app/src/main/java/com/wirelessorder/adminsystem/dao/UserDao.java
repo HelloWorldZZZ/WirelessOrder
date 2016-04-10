@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
+import com.wirelessorder.adminsystem.po.Admin;
 import com.wirelessorder.adminsystem.po.User;
 import com.wirelessorder.adminsystem.utils.DataBaseHelper;
 import com.wirelessorder.adminsystem.utils.Utils;
@@ -53,6 +54,12 @@ public class UserDao {
         }
         c.close();
         return userList;
+    }
+
+    public Cursor getMatchUser(String userName, String password) {
+        String sql = "SELECT * FROM t_user WHERE user_name=? AND user_password=?";
+        Cursor c = mDB.rawQuery(sql, new String[]{userName, Utils.encrypt(password)});
+        return c;
     }
 
     public void closeDB() {
