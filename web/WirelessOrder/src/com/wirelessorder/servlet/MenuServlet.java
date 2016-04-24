@@ -30,7 +30,7 @@ public class MenuServlet extends HttpServlet {
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		String type = request.getParameter("type");
+		String type = request.getParameter("type"); //获取所需菜品的类型 “0”为所有菜品
 		int mealType = Integer.parseInt(type);
 		response.setContentType("text/html;charset=UTF-8;");
 		PrintWriter out = response.getWriter();
@@ -38,7 +38,7 @@ public class MenuServlet extends HttpServlet {
 
 		try {
 			if (mealType == TYPE_ALL) {
-				List<Meal> mealList = mealService.getAllMeal();
+				List<Meal> mealList = mealService.getAllMeal(); //从数据库中获取菜品
 				for (Meal meal : mealList) {
 					JSONObject mealItem = new JSONObject();
 					mealItem.put("meal_id", meal.getMealId());
@@ -47,7 +47,7 @@ public class MenuServlet extends HttpServlet {
 					mealItem.put("meal_price", meal.getMealPrice());
 					mealItem.put("meal_image_url", meal.getMealImage());
 					mealItem.put("meal_info", meal.getMealInfo());
-					resultArray.put(mealItem);
+					resultArray.put(mealItem); //将数据放入json数组中
 				}
 			} else {
 				List<Meal> mealList = mealService.getAllMealByType(mealType);

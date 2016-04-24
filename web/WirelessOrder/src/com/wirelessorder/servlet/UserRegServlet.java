@@ -25,6 +25,7 @@ public class UserRegServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
+		/*获取注册用户相关信息*/
 		String userName = request.getParameter("userName");
 		String userPassword = request.getParameter("password");
 		String userPhone = request.getParameter("phone");
@@ -34,10 +35,10 @@ public class UserRegServlet extends HttpServlet {
 		JSONObject result = new JSONObject();
 
 		try {
-			if (userService.isUserExists(userName)) {
+			if (userService.isUserExists(userName)) { //判断用户名是否已存在
 				result.put("regSuccess", 0);
 			} else {
-				int userId = userService.addUser(user);
+				int userId = userService.addUser(user); //添加用户
 				result.put("regSuccess", 1);
 				result.put("user_id", userId);
 			}

@@ -25,12 +25,13 @@ public class UserLoginServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		String userName = request.getParameter("userName");
-		String password = request.getParameter("password");
+		String userName = request.getParameter("userName");//获取用户名
+		String password = request.getParameter("password");//获取密码
 		
-		boolean isUserValid = userService.isUserMatch(userName, password);
+		boolean isUserValid = userService.isUserMatch(userName, password);//数据库中匹配用户信息
 		if (isUserValid) {
-			User user = userService.getUser(userName, password);
+			/*登录成功*/
+			User user = userService.getUser(userName, password);//获取用户完整信息
 			response.setContentType("text/html;charset=UTF-8;");
 			PrintWriter out = response.getWriter();
 			JSONObject result = new JSONObject();
@@ -45,6 +46,7 @@ public class UserLoginServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		} else {
+			/*登录失败*/
 			response.setContentType("text/html;charset=UTF-8;");
 			PrintWriter out = response.getWriter();
 			JSONObject result = new JSONObject();

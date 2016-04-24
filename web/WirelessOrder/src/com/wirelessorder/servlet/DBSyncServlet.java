@@ -37,6 +37,7 @@ public class DBSyncServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8;");
+		/*从数据库获取所有数据*/
 		List<User> userList = userService.getAllUsers();
 		List<Admin> adminList = adminService.getAllAdmins();
 		List<Meal> mealList = mealService.getAllMeal();
@@ -48,7 +49,7 @@ public class DBSyncServlet extends HttpServlet {
 		JSONArray orderArray = new JSONArray();
 		JSONArray orderDetailArray = new JSONArray();
 		PrintWriter out = response.getWriter();
-
+		/*将数据都以json的形式返回给客户端*/
 		try {
 			for(User user : userList) {
 				JSONObject userJson = new JSONObject();
