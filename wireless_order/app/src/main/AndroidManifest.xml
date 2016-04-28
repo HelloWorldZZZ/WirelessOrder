@@ -9,15 +9,20 @@
     <!-- 往SDCard写入数据权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
-        android:name=".widget.BaseApplication"
+        android:name="ecnu.pb.wireless_order.widget.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activity.SplashActivity"
+            android:name="ecnu.pb.wireless_order.activity.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,47 +30,98 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity.MainActivity"
+        <activity android:name="ecnu.pb.wireless_order.activity.MainActivity"
             android:label="@string/title_main"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
-            android:name=".activity.SignInActivity"
+            android:name="ecnu.pb.wireless_order.activity.SignInActivity"
             android:label="@string/title_sign_in"/>
 
         <activity
-            android:name=".activity.SignUpActivity"
+            android:name="ecnu.pb.wireless_order.activity.SignUpActivity"
             android:label="@string/title_sign_up"/>
 
         <activity
-            android:name=".activity.UserActivity"
+            android:name="ecnu.pb.wireless_order.activity.UserActivity"
             android:label="@string/title_user"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
-            android:name=".activity.MenuActivity"
+            android:name="ecnu.pb.wireless_order.activity.MenuActivity"
             android:label="@string/title_menu"
             android:theme="@style/AppTheme.NoActionBar"/>
 
         <activity
-            android:name=".activity.OrderActivity"
+            android:name="ecnu.pb.wireless_order.activity.OrderActivity"
             android:label="@string/title_order" />
 
         <activity
-            android:name=".activity.OrderDetailActivity"
+            android:name="ecnu.pb.wireless_order.activity.OrderDetailActivity"
             android:label="@string/title_order_detail" />
 
         <activity
-            android:name=".activity.MenuDetailActivity"
+            android:name="ecnu.pb.wireless_order.activity.MenuDetailActivity"
             android:label="@string/title_menu_detail" />
 
         <activity
-            android:name=".activity.PayActivity"
+            android:name="ecnu.pb.wireless_order.activity.PayActivity"
             android:label="@string/title_pay" />
 
         <activity
-            android:name=".activity.PlaceOrderActivity"
+            android:name="ecnu.pb.wireless_order.activity.PlaceOrderActivity"
             android:label="@string/title_place_order" />
+
+        <activity
+            android:name="com.wirelessorder.adminsystem.func.MainActivity"
+            android:theme="@style/AppAdminTheme"
+            android:label="@string/app_admin_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.wirelessorder.adminsystem.func.WelcomeActivity"
+            android:theme="@style/AppAdminTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.wirelessorder.adminsystem.func.BaseActivity"
+            android:theme="@style/AppAdminTheme"
+            android:label="@string/app_admin_name" >
+        </activity>
+        <activity
+            android:name="com.wirelessorder.adminsystem.func.LoginActivity"
+            android:theme="@style/AppAdminTheme"
+            android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name="com.wirelessorder.adminsystem.func.MenuActivity"
+            android:theme="@style/AppAdminTheme"
+            android:label="@string/title_activity_menu" >
+        </activity>
+        <activity
+            android:name="com.wirelessorder.adminsystem.func.MealAddActivity"
+            android:theme="@style/AppAdminTheme"
+            android:label="@string/title_activity_meal_add" >
+        </activity>
+
+        <provider
+            android:name="com.wirelessorder.adminsystem.func.WirelessProvider"
+            android:authorities="com.wirelessorder.adminsystem.wirelessprovider"
+            android:exported="true" />
+
+        <service
+            android:name="com.wirelessorder.adminsystem.func.DataSyncService"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="com.wirelessorder.adminsystem.DATASYNCSERVICE" />
+            </intent-filter>
+        </service>
 
     </application>
 

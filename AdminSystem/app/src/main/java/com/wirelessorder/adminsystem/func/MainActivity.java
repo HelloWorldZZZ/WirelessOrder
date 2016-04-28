@@ -38,7 +38,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mContext = this;
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_admin_main);
         initView();
     }
 
@@ -136,7 +136,7 @@ public class MainActivity extends ActionBarActivity {
 
     private void showExitDialog() {
         AlertDialog exitDialog = new AlertDialog.Builder(mContext)
-                .setTitle(getString(R.string.app_name))
+                .setTitle(getString(R.string.app_admin_name))
                 .setMessage("退出系统并注销?")
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override

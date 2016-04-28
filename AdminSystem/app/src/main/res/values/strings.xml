@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">无线点餐后台管理系统</string>
+    <string name="app_admin_name">无线点餐后台管理系统</string>
     <string name="welcome">欢迎使用无线点餐后台管理系统</string>
     <string name="meal_manage">菜品管理</string>
     <string name="meal_add">添加菜品</string>

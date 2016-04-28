@@ -64,7 +64,7 @@ public class RecommendFragment extends Fragment implements MenuPresenter.View{
 
     @Override
     public Context getViewContext() {
-        return getContext();
+        return getActivity();
     }
 
     @Override

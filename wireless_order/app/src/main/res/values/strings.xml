@@ -21,4 +21,28 @@
     <string name="cellphone">电话号</string>
     <string name="username">用户名</string>
     <string name="password">密码</string>
+
+    <string name="app_admin_name">无线点餐后台管理系统</string>
+    <string name="welcome">欢迎使用无线点餐后台管理系统</string>
+    <string name="meal_manage">菜品管理</string>
+    <string name="meal_add">添加菜品</string>
+    <string name="update_db">更新数据</string>
+    <string name="log_out">注销</string>
+    <string name="log_in">登录</string>
+    <string name="user_name">用户名</string>
+    <string name="login_mention">请输入完整信息</string>
+    <string name="network_error">请检查您的网络连接</string>
+    <string name="admin">管理员</string>
+    <string name="login_fail">用户名或密码错误</string>
+    <string name="ok">确定</string>
+    <string name="cancel">取消</string>
+    <string name="modify">修改</string>
+    <string name="title_meal_edit">菜品编辑</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="drawer_open">drawer_open</string>
+    <string name="drawer_close">drawer_close</string>
+    <string name="title_activity_login">登录界面</string>
+    <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_meal_add">MealAddActivity</string>
 </resources>

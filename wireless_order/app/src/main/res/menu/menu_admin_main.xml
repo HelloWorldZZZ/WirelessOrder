@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/meal"
+            android:icon="@mipmap/list"
+            android:title="@string/meal_manage"></item>
+        <item
+            android:id="@+id/update"
+            android:icon="@mipmap/update"
+            android:title="@string/update_db"></item>
+        <item
+            android:id="@+id/logout"
+            android:icon="@mipmap/logout"
+            android:title="@string/log_out"></item>
+    </group>
+</menu>
