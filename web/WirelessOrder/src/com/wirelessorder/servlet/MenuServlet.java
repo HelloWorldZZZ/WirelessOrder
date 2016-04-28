@@ -62,7 +62,9 @@ public class MenuServlet extends HttpServlet {
 					resultArray.put(mealItem);
 				}
 			}
-			out.write(resultArray.toString());
+			JSONObject resultJson = new JSONObject();
+			resultJson.put("menu", resultArray);
+			out.write(resultJson.toString());
 			out.flush();
 			out.close();
 		} catch (JSONException e) {
