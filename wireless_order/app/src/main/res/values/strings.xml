@@ -22,8 +22,8 @@
     <string name="username">用户名</string>
     <string name="password">密码</string>
 
-    <string name="app_admin_name">无线点餐后台管理系统</string>
-    <string name="welcome">欢迎使用无线点餐后台管理系统</string>
+    <string name="app_admin_name">移动点餐后台管理系统</string>
+    <string name="welcome">欢迎使用移动点餐后台管理系统</string>
     <string name="meal_manage">菜品管理</string>
     <string name="meal_add">添加菜品</string>
     <string name="update_db">更新数据</string>

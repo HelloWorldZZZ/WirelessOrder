@@ -11,6 +11,7 @@ import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Length;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
+import com.wirelessorder.adminsystem.func.WelcomeActivity;
 
 import java.util.List;
 
@@ -45,6 +46,12 @@ public class SignInActivity extends AppCompatActivity implements Validator.Valid
     @OnClick(R.id.txt_btn_signup)
     void OnSignUp() {
         startActivity(new Intent(this, SignUpActivity.class));
+        finish();
+    }
+
+    @OnClick(R.id.txt_btn_admin)
+    void StartUpAdminSystem() {
+        startActivity(new Intent(this, WelcomeActivity.class));
         finish();
     }
 
