@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2015 NeoClub Co. Ltd. All rights reserved.
+  -->
+
+<resources>
+
+    <style name="Divider"/>
+
+    <style name="Divider.Vertical">
+        <item name="android:background">@color/divider</item>
+        <item name="android:layout_width">0.5dp</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
+
+    <style name="Divider.Horizontal">
+        <item name="android:background">@color/divider</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+    </style>
+
+    <style name="Divider.Horizontal.White" parent="Divider.Horizontal">
+        <item name="android:background">@color/white</item>
+    </style>
+
+    <style name="Divider.Vertical.Blue" parent="Divider.Vertical">
+        <item name="android:background">@color/primary</item>
+    </style>
+
+    <style name="shadow_top">
+        <item name="android:paddingTop">2dp</item>
+        <item name="android:background">@drawable/shadow_top</item>
+    </style>
+
+    <style name="login_edit_text">
+        <item name="android:textCursorDrawable">@drawable/text_cursor_login</item>
+        <item name="android:background">@null</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAppearance">@style/TextAppearance.Subhead.Inverse</item>
+        <item name="android:textColorHint">@color/white_alpha_64</item>
+    </style>
+
+    <style name="FormEditText">
+        <item name="android:background">@null</item>
+        <item name="android:textColorHint">@color/gray_20</item>
+        <item name="android:textCursorDrawable">@drawable/text_cursor_form</item>
+    </style>
+
+    <style name="Button">
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Button.ActionSheet">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
+
+    <style name="Button.ActionSheet.Blue" parent="Button.ActionSheet">
+        <item name="android:background">@drawable/button_blue</item>
+        <item name="android:textAppearance">@style/TextAppearance.Subhead.Inverse</item>
+    </style>
+
+    <style name="Button.ActionSheet.Blue.Small" parent="Button.ActionSheet.Blue">
+        <item name="android:textAppearance">@style/TextAppearance.Body.Inverse</item>
+        <item name="android:layout_height">30dp</item>
+    </style>
+
+    <style name="Button.ActionSheet.White" parent="Button.ActionSheet">
+        <item name="android:background">@drawable/button_white</item>
+    </style>
+
+    <style name="Button.ActionSheet.White.Small" parent="Button.ActionSheet.White">
+        <item name="android:textAppearance">@style/TextAppearance.Body</item>
+        <item name="android:layout_height">30dp</item>
+    </style>
+
+    <style name="Button.ActionSheet.Gray.Small" parent="Button.ActionSheet">
+        <item name="android:background">@drawable/button_gray</item>
+        <item name="android:textAppearance">@style/TextAppearance.Body</item>
+        <item name="android:layout_height">30dp</item>
+    </style>
+
+    <style name="Button.FormAction" parent="Button">
+        <item name="android:layout_height">24dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="Button.FormAction.Blue" parent="Button.FormAction">
+        <item name="android:background">@drawable/button_blue</item>
+        <item name="android:textAppearance">@style/TextAppearance.Caption.Inverse</item>
+    </style>
+
+    <style name="Button.Send" parent="Button">
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_width">60dp</item>
+        <item name="android:background">@drawable/clickable_white</item>
+    </style>
+
+    <style name="Button.Exit" parent="Button">
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textColor">@color/textColorExit</item>
+        <item name="android:textAppearance">@style/TextAppearance.Subhead</item>
+        <item name="android:background">@drawable/clickable_white</item>
+    </style>
+
+    <style name="ViewGroup"/>
+
+    <style name="ViewGroup.SignupForm">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="TextView"/>
+
+    <style name="TextView.Button"/>
+
+    <style name="TextView.Button.BottomSubmit" parent="TextView.Button">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:background">@drawable/btn_txt_bottom_submit</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAppearance">@style/TextAppearance.Subhead.Inverse</item>
+        <item name="android:layout_alignParentBottom">true</item>
+    </style>
+
+    <style name="TextView.FormPlaceholder">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingBottom">12dp</item>
+        <item name="android:text">载入中...</item>
+        <item name="android:textAppearance">@style/TextAppearance.Caption.Hint</item>
+    </style>
+
+    <style name="TextView.WindowPlaceholder">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/windowBackgroundColor</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">载入中...</item>
+        <item name="android:textAppearance">@style/TextAppearance.Caption.Hint</item>
+    </style>
+
+    <style name="ImageView"/>
+
+    <style name="ImageView.Photo"/>
+
+    <style name="ImageView.Photo.Small">
+        <item name="android:layout_height">@dimen/image_size_photo_small</item>
+        <item name="android:layout_width">@dimen/image_size_photo_small</item>
+    </style>
+
+    <style name="Widget.Home"/>
+
+    <style name="Widget.Home.Title">
+        <item name="android:layout_marginLeft">12dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Subhead</item>
+    </style>
+
+    <style name="TextView.PostTab">
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+        <item name="android:textAppearance">@style/TextAppearance.Body</item>
+        <item name="android:textColor">@drawable/text_post_tab</item>
+    </style>
+</resources>

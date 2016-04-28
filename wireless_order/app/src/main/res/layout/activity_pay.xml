@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray_05">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="请选择支付方式："/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:src="@mipmap/zhifubao"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/weixin"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:background="@color/white">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:src="@mipmap/baidu"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/pay_bill"
+        style="@style/Button.ActionSheet.Blue"
+        android:layout_gravity="bottom"
+        android:text="支付"
+        />
+
+
+</LinearLayout>

@@ -1,0 +1,47 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="title_bar_height">50dp</dimen>
+    <dimen name="title_bar_button_height">24dp</dimen>
+    <dimen name="tab_bar_height">50dp</dimen>
+
+    <dimen name="text_size_tip">10sp</dimen>
+    <dimen name="text_size_caption">12sp</dimen>
+    <dimen name="text_size_body">14sp</dimen>
+    <dimen name="text_size_subhead">16sp</dimen>
+    <dimen name="text_size_title">18sp</dimen>
+    <dimen name="text_size_headline">24sp</dimen>
+    <dimen name="text_size_display">32sp</dimen>
+
+    <dimen name="image_size_photo_small">40dp</dimen>
+    <dimen name="image_size_photo_medium">60dp</dimen>
+    <dimen name="image_size_photo_large">90dp</dimen>
+    <dimen name="image_size_qr_code">200dp</dimen>
+
+    <dimen name="button_corner_radius">4dp</dimen>
+
+    <dimen name="skill_tag_width">75dp</dimen>
+    <dimen name="skill_tag_height">16dp</dimen>
+
+    <dimen name="form_button_text_width">72dp</dimen>
+    <dimen name="form_label_padding">15dp</dimen>
+    <dimen name="form_button_height">48dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="team_detail_header_height">180dp</dimen>
+    <dimen name="profile_header_height">150dp</dimen>
+    <dimen name="widget_user_role_radius">4dp</dimen>
+
+    <dimen name="item_home_user_width">94dp</dimen>
+    <dimen name="item_home_user_height">140dp</dimen>
+    <dimen name="item_home_team_width">94dp</dimen>
+    <dimen name="item_home_team_height">150dp</dimen>
+
+    <dimen name="slide_item_project_width">94dp</dimen>
+    <dimen name="slide_item_project_height">128dp</dimen>
+    <dimen name="grid_team_member_height">96dp</dimen>
+
+    <dimen name="anim_distance_home_post_button_group">120dp</dimen>
+</resources>

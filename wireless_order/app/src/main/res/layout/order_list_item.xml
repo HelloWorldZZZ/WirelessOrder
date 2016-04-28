@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:id="@+id/layout_order"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/txt_order_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="订单已完成"
+            android:textAppearance="@style/TextAppearance.Subhead.Primary" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="8dp"
+            android:background="@color/primary" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="就餐时间:  "
+                android:textAppearance="@style/TextAppearance.Subhead.Primary" />
+
+            <TextView
+                android:id="@+id/txt_order_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="202020"
+                android:textAppearance="@style/TextAppearance.Subhead.Secondary" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="就餐人数:  "
+                android:textAppearance="@style/TextAppearance.Subhead.Primary" />
+
+            <TextView
+                android:id="@+id/txt_order_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="202020"
+                android:textAppearance="@style/TextAppearance.Subhead.Secondary" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:paddingLeft="20dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="总价:  "
+                android:textAppearance="@style/TextAppearance.Subhead.Primary" />
+
+            <TextView
+                android:id="@+id/txt_order_total"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="202020"
+                android:textAppearance="@style/TextAppearance.Subhead.Secondary" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txt_btn_order"
+            android:text="加菜"
+            style="@style/Button.ActionSheet.Blue.Small"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/txt_btn_onemore"
+            android:text="再来一单"
+            style="@style/Button.ActionSheet.Blue.Small"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/txt_btn_pay"
+            android:text="结算"
+            style="@style/Button.ActionSheet.Gray.Small"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/clickable_white"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="订单编号"
+                    android:textAppearance="@style/TextAppearance.Subhead" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical">
+
+
+                    <TextView
+                        android:id="@+id/txt_order_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12312312"
+                        android:textAppearance="@style/TextAppearance.Subhead" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View style="@style/Divider.Horizontal" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="就餐时间"
+                    android:textAppearance="@style/TextAppearance.Subhead" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical">
+
+
+                    <TextView
+                        android:id="@+id/txt_order_time"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12312312"
+                        android:textAppearance="@style/TextAppearance.Subhead" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View style="@style/Divider.Horizontal" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="就餐人数"
+                    android:textAppearance="@style/TextAppearance.Subhead" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical">
+
+
+                    <TextView
+                        android:id="@+id/txt_order_people"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12312312"
+                        android:textAppearance="@style/TextAppearance.Subhead" />
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <View style="@style/Divider.Horizontal" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <ListView
+                    android:id="@+id/lv_order_detail_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@color/divider"
+                    android:dividerHeight="0.5dp"
+                    android:scrollbars="none"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:background="@color/divider"/>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txt_order_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="20dp"
+                    android:text="123132"
+                    android:textAppearance="@style/TextAppearance.Subhead" />
+
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txt_btn_pay"
+                style="@style/Button.ActionSheet.Blue"
+                android:layout_gravity="bottom"
+                android:text="结算" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

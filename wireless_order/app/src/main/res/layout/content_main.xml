@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".activity.MainActivity"
+    tools:showIn="@layout/activity_main">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--START Banner-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+            <com.zanlabs.widget.infiniteviewpager.InfiniteViewPager
+                android:id="@+id/ivp_banners"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <com.zanlabs.widget.infiniteviewpager.indicator.CirclePageIndicator
+                android:id="@+id/circlePageIndicator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_margin="8dp"
+                app:fillColor="@color/white_alpha_87"
+                app:pageColor="@color/white_alpha_50"
+                app:snap="true"
+                app:strokeWidth="0dp" />
+        </RelativeLayout>
+        <!--END Banner-->
+
+        <!--START entrance-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ecnu.pb.wireless_order.widget.HomeGridButton
+                android:id="@+id/hgb_userBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:hgb_image="@mipmap/ic_findperson_24dp"
+                app:hgb_title="@string/user" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/gray"/>
+
+            <ecnu.pb.wireless_order.widget.HomeGridButton
+                android:id="@+id/hgb_menuBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:hgb_image="@mipmap/ic_findarticle_24dp"
+                app:hgb_title="@string/menu" />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/gray"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ecnu.pb.wireless_order.widget.HomeGridButton
+                android:id="@+id/hgb_orderBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:hgb_image="@mipmap/ic_findactivity_24dp"
+                app:hgb_title="@string/order" />
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/gray"/>
+
+            <ecnu.pb.wireless_order.widget.HomeGridButton
+                android:id="@+id/hgb_payBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                app:hgb_image="@mipmap/ic_findmoney_24dp"
+                app:hgb_title="@string/pay" />
+        </LinearLayout>
+        <!--END entrance-->
+
+
+    </LinearLayout>
+
+</RelativeLayout>

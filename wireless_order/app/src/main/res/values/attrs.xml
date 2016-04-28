@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2015 NeoClub Co. Ltd. All rights reserved.
+  -->
+
+<resources>
+    <declare-styleable name="FormTitle">
+        <attr name="ft_title" format="string"/>
+        <attr name="ft_hint" format="string"/>
+        <attr name="ft_icon" format="reference"/>
+        <attr name="ft_markColor" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="FormDrawableButton">
+        <attr name="bgb_drawableLeft" format="reference"/>
+        <attr name="bgb_drawableRight" format="reference"/>
+        <attr name="bgb_text" format="string"/>
+        <attr name="bgb_dividerBottom" format="boolean"/>
+    </declare-styleable>
+
+    <declare-styleable name="FormButton">
+        <attr name="fb_enabled" format="boolean"/>
+        <attr name="fb_label" format="string"/>
+        <attr name="fb_text" format="string"/>
+        <attr name="fb_dividerBottom" format="boolean"/>
+        <attr name="fb_emptyNotice" format="string"/>
+        <attr name="fb_drawableRight" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="FormEditText">
+        <attr name="fet_enabled" format="boolean"/>
+        <attr name="fet_label" format="string"/>
+        <attr name="fet_hint" format="string"/>
+        <attr name="fet_text" format="string"/>
+        <attr name="fet_dividerBottom" format="boolean"/>
+        <attr name="fet_maxLength" format="integer"/>
+    </declare-styleable>
+
+    <declare-styleable name="TitleBarButton">
+        <attr name="tbb_text" format="string"/>
+        <attr name="tbb_drawable" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="TabView">
+        <attr name="tv_text" format="string"/>
+        <attr name="tv_drawable" format="reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="HomeGridButton">
+        <attr name="hgb_image" format="reference"/>
+        <attr name="hgb_title" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="HomeLayerButton">
+        <attr name="hlb_icon" format="reference"/>
+        <attr name="hlb_label" format="string"/>
+    </declare-styleable>
+</resources>

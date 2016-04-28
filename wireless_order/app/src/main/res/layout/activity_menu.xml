@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/title_bar_height" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/title_bar_height"
+        android:background="@drawable/bg_titlebar">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_post_tab">
+
+            <TextView
+                android:id="@+id/txt_btn_recommendTab"
+                style="@style/TextView.PostTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_post_tab_left"
+                android:text="热销菜品" />
+
+            <View style="@style/Divider.Vertical.Blue" />
+
+            <TextView
+                android:id="@+id/txt_btn_otherTab"
+                style="@style/TextView.PostTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_post_tab_middle"
+                android:text="其他菜品" />
+
+            <View style="@style/Divider.Vertical.Blue" />
+
+            <TextView
+                android:id="@+id/txt_btn_vipTab"
+                style="@style/TextView.PostTab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_post_tab_right"
+                android:text="会员优惠" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <include layout="@layout/shadow_bottom" />
+
+    <TextView
+        android:id="@+id/txt_btn_order"
+        style="@style/Button.ActionSheet.Blue"
+        android:layout_gravity="bottom"
+        android:text="下单"
+        />
+
+</FrameLayout>

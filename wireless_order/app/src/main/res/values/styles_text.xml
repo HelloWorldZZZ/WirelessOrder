@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~ Copyright (c) 2015 NeoClub Co. Ltd. All rights reserved.
+  -->
+
+<resources>
+
+    <style name="TextAppearance">
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textSize">@dimen/text_size_body</item>
+    </style>
+
+    <style name="TextAppearance.Display" parent="TextAppearance">
+        <item name="android:textSize">@dimen/text_size_display</item>
+    </style>
+
+    <style name="TextAppearance.Display.Inverse" parent="TextAppearance.Display">
+        <item name="android:textColor">@color/textColorPrimaryInverse</item>
+    </style>
+
+    <style name="TextAppearance.Headline" parent="TextAppearance">
+        <item name="android:textSize">@dimen/text_size_headline</item>
+    </style>
+
+    <style name="TextAppearance.Headline.Inverse" parent="TextAppearance.Display">
+        <item name="android:textColor">@color/textColorPrimaryInverse</item>
+    </style>
+
+    <style name="TextAppearance.Title" parent="TextAppearance">
+        <item name="android:textSize">@dimen/text_size_title</item>
+    </style>
+
+    <style name="TextAppearance.Title.Inverse" parent="TextAppearance.Title">
+        <item name="android:textColor">@color/textColorPrimaryInverse</item>
+    </style>
+
+    <style name="TextAppearance.Title.Primary" parent="TextAppearance.Title">
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="TextAppearance.Subhead" parent="TextAppearance">
+        <item name="android:textSize">@dimen/text_size_subhead</item>
+    </style>
+
+    <style name="TextAppearance.Subhead.Inverse" parent="TextAppearance.Subhead">
+        <item name="android:textColor">@color/textColorPrimaryInverse</item>
+    </style>
+
+    <style name="TextAppearance.Subhead.Secondary" parent="TextAppearance.Subhead">
+        <item name="android:textColor">@color/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.Subhead.Hint" parent="TextAppearance.Subhead">
+        <item name="android:textColor">@color/textColorHint</item>
+    </style>
+
+    <style name="TextAppearance.Subhead.Primary" parent="TextAppearance.Subhead">
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="TextAppearance.Body" parent="TextAppearance"/>
+
+    <style name="TextAppearance.Body.Inverse" parent="TextAppearance.Body">
+        <item name="android:textColor">@color/textColorPrimaryInverse</item>
+    </style>
+
+    <style name="TextAppearance.Body.Secondary" parent="TextAppearance.Body">
+        <item name="android:textColor">@color/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.Body.SecondaryInverse" parent="TextAppearance.Body">
+        <item name="android:textColor">@color/textColorSecondaryInverse</item>
+    </style>
+
+    <style name="TextAppearance.Body.Hint" parent="TextAppearance.Body">
+        <item name="android:textColor">@color/textColorHint</item>
+    </style>
+
+    <style name="TextAppearance.Body.HintInverse" parent="TextAppearance.Body">
+        <item name="android:textColor">@color/textColorHintInverse</item>
+    </style>
+
+    <style name="TextAppearance.Body.Accent" parent="TextAppearance.Body">
+        <item name="android:textColor">@color/accent</item>
+    </style>
+
+    <style name="TextAppearance.Caption" parent="TextAppearance">
+        <item name="android:textSize">@dimen/text_size_caption</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Inverse" parent="TextAppearance.Caption">
+        <item name="android:textColor">@color/textColorPrimaryInverse</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Secondary" parent="TextAppearance.Caption">
+        <item name="android:textColor">@color/textColorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Hint" parent="TextAppearance.Caption">
+        <item name="android:textColor">@color/textColorHint</item>
+    </style>
+
+    <style name="TextAppearance.Caption.HintInverse" parent="TextAppearance.Caption">
+        <item name="android:textColor">@color/textColorHintInverse</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Alert" parent="TextAppearance.Caption">
+        <item name="android:textColor">@color/textColorAlert</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Accent" parent="TextAppearance.Caption">
+        <item name="android:textColor">@color/accent</item>
+    </style>
+
+    <style name="TextAppearance.Caption.Primary" parent="TextAppearance.Caption">
+        <item name="android:textColor">@color/primary</item>
+    </style>
+
+    <style name="TextAppearance.Tip" parent="TextAppearance">
+        <item name="android:textSize">@dimen/text_size_tip</item>
+    </style>
+
+    <style name="TextAppearance.Tip.Inverse" parent="TextAppearance.Tip">
+        <item name="android:textColor">@color/textColorPrimaryInverse</item>
+    </style>
+
+    <style name="TextAppearance.Tip.Accent" parent="TextAppearance.Tip">
+        <item name="android:textColor">@color/accent</item>
+    </style>
+</resources>
