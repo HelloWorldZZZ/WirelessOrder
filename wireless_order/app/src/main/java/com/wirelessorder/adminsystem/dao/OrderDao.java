@@ -71,6 +71,18 @@ public class OrderDao {
         return orderList;
     }
 
+    public Cursor getOrderByUserId(String userId) {
+        String sql = "SELECT * FROM t_order WHERE user_id=?";
+        Cursor c = mDB.rawQuery(sql, new String[] {userId});
+        return c;
+    }
+
+    public Cursor getOrderDetailByOrderId(String orderId) {
+        String sql = "SELECT * FROM t_order_detail WHERE order_id=?";
+        Cursor c = mDB.rawQuery(sql, new String[] {orderId});
+        return c;
+    }
+
     public void closeDB() {
         mDB.close();
     }

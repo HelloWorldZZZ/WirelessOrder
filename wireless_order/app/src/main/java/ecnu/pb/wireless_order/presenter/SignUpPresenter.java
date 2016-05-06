@@ -5,11 +5,14 @@ import android.util.Log;
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.wirelessorder.adminsystem.dao.UserDao;
+import com.wirelessorder.adminsystem.utils.Utils;
 
 import ecnu.pb.wireless_order.database.AccountManager;
 import ecnu.pb.wireless_order.model.User;
 import ecnu.pb.wireless_order.model.UserModel;
 import ecnu.pb.wireless_order.net.RestAsyncTask;
+import ecnu.pb.wireless_order.net.UserService;
 import ecnu.pb.wireless_order.net.VolleyRequest;
 import ecnu.pb.wireless_order.widget.ToastUtils;
 
@@ -17,7 +20,7 @@ public class SignUpPresenter extends BasePresenter<SignUpPresenter.View> {
 
     public SignUpPresenter() {}
 
-    public void signUp(String phone, String name, String password) {
+    public void  signUp(String phone, String name, String password) {
         new SignUpTask(phone, name, password).execute();
     }
 
@@ -53,6 +56,7 @@ public class SignUpPresenter extends BasePresenter<SignUpPresenter.View> {
                             public void onResponse(User user) {
                                 if (user.getRegSuccess() == 1) {
                                     AccountManager.setKeyUserId(getContext(), user.getUser_id());
+                                    insertUser(user.getUser_id(), name, password, phone);
                                     getView().showView();
                                 } else {
                                     ToastUtils.showToast(getContext(), "注册失败，用户名已存在");
@@ -85,6 +89,14 @@ public class SignUpPresenter extends BasePresenter<SignUpPresenter.View> {
 //                    break;
 //            }
         }
+    }
+
+    private void insertUser(int userId, String userName, String password, String phone) {
+        com.wirelessorder.adminsystem.po.User the_user = new
+                com.wirelessorder.adminsystem.po.User(userName, Utils.encrypt(password), phone);
+        the_user.setUserId(userId);
+        UserDao userDao = new UserDao(getContext());
+        userDao.insertUser(the_user);
     }
 
     public interface View extends BaseView {

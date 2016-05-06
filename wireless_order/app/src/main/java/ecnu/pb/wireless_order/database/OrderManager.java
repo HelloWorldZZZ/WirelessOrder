@@ -53,7 +53,7 @@ public class OrderManager {
     }
 
     public static int getOrderSum(Context context) {
-        return getSharedPreferences(context).getInt(ORDER_SUM, 100);
+        return getSharedPreferences(context).getInt(ORDER_SUM, 0);
     }
 
     public static int getOrderStatus(Context context) {

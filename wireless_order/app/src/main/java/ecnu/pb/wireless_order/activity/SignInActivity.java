@@ -2,6 +2,7 @@ package ecnu.pb.wireless_order.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.EditText;
@@ -11,6 +12,7 @@ import com.mobsandgeeks.saripaar.Validator;
 import com.mobsandgeeks.saripaar.annotation.Length;
 import com.mobsandgeeks.saripaar.annotation.NotEmpty;
 import com.mobsandgeeks.saripaar.annotation.Password;
+import com.wirelessorder.adminsystem.dao.UserDao;
 import com.wirelessorder.adminsystem.func.WelcomeActivity;
 
 import java.util.List;
@@ -75,10 +77,21 @@ public class SignInActivity extends AppCompatActivity implements Validator.Valid
 
     @Override
     public void onValidationSucceeded() {
-        mPresenter.signIn( mMobile.getText().toString(), mPassword.getText().toString());
+//        mPresenter.signIn( mMobile.getText().toString(), mPassword.getText().toString());
 //        ToastUtils.showToast(this, "登陆成功");
 //        AccountManager.signin(this, mMobile.getText().toString(), mPassword.getText().toString());
 //        finish();
+        UserDao userDao = new UserDao(this);
+        String name = mMobile.getText().toString();
+        String pwd = mPassword.getText().toString();
+        Cursor c = userDao.getMatchUser(name, pwd);
+        if (c.moveToNext()) {
+            ToastUtils.showToast(this, "登陆成功");
+            AccountManager.signin(this, mMobile.getText().toString(), mPassword.getText().toString());
+            finish();
+        } else {
+            ToastUtils.showToast(this, "用户不存在");
+        }
     }
 
     @Override
@@ -90,9 +103,9 @@ public class SignInActivity extends AppCompatActivity implements Validator.Valid
 
     @Override
     public void showView() {
-        ToastUtils.showToast(this, "登陆成功");
-        AccountManager.signin(this, mMobile.getText().toString(), mPassword.getText().toString());
-        finish();
+//        ToastUtils.showToast(this, "登陆成功");
+//        AccountManager.signin(this, mMobile.getText().toString(), mPassword.getText().toString());
+//        finish();
     }
 
     @Override

@@ -1,10 +1,13 @@
 package ecnu.pb.wireless_order.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+
+import com.wirelessorder.adminsystem.func.DataSyncService;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -28,7 +31,18 @@ public class SplashActivity extends AppCompatActivity {
     }
 
     private void init() {
+        syncData();
         startMainDelayed(DEFAULT_DELAY);
+    }
+
+    private void syncData() {
+        SharedPreferences mSp = getSharedPreferences("app_info", MODE_PRIVATE);
+        final boolean isFirstTime = mSp.getBoolean("ClientFirstStartup", true);
+        if (isFirstTime) {
+            Intent intent = new Intent(SplashActivity.this, DataSyncService.class);
+            this.startService(intent);
+            mSp.edit().putBoolean("ClientFirstStartup", false).commit();
+        }
     }
 
     private void startMainDelayed(long delay) {

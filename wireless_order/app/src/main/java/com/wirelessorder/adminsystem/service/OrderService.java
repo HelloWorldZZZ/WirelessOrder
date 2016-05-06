@@ -11,6 +11,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -54,6 +55,32 @@ public class OrderService {
                 e.printStackTrace();
             }
         }
+    }
+
+    public Order getOrderByUserId(int userId) {
+        Order order = new Order();
+        Cursor c = orderDao.getOrderByUserId(String.valueOf(userId));
+        while(c.moveToNext()) {
+            order.setUserId(userId);
+            order.setOrderId(c.getInt(c.getColumnIndex("order_id")));
+            order.setUserAmount(c.getInt(c.getColumnIndex("order_user_amount")));
+            order.setOrderDate(c.getString(c.getColumnIndex("order_sum")));
+            order.setOrderDate(c.getString(c.getColumnIndex("order_date")));
+        }
+        return order;
+    }
+
+    public List<OrderDetail> getOrderDetailByOrderId(int orderId) {
+        List<OrderDetail> orderDetailList = new ArrayList<>();
+        Cursor c = orderDao.getOrderDetailByOrderId(String.valueOf(orderId));
+        while(c.moveToNext()) {
+            OrderDetail orderDetail = new OrderDetail();
+            orderDetail.setOrderId(orderId);
+            orderDetail.setMealId(c.getInt(c.getColumnIndex("meal_id")));
+            orderDetail.setMealAmount(c.getInt(c.getColumnIndex("meal_amount")));
+            orderDetailList.add(orderDetail);
+        }
+        return  orderDetailList;
     }
 
     public int getOrderAmount() {

@@ -16,21 +16,29 @@ import ecnu.pb.wireless_order.activity.MenuActivity;
 import ecnu.pb.wireless_order.activity.OrderDetailActivity;
 import ecnu.pb.wireless_order.activity.PayActivity;
 import ecnu.pb.wireless_order.activity.PlaceOrderActivity;
+import ecnu.pb.wireless_order.database.AccountManager;
 import ecnu.pb.wireless_order.database.OrderManager;
 
 public class OrderAdapter extends BaseAdapter implements View.OnClickListener {
 
     private Context context;
 
+    private int num;
+
     private String[] status = {"订单未完成", "订单已完成"};
 
     public OrderAdapter(Context context) {
         this.context = context;
+        if (!AccountManager.isSignin(context)) {
+            num = 0;
+        } else {
+            num = 1;
+        }
     }
 
     @Override
     public int getCount() {
-        return 1;
+        return num;
 //        return status.length;
     }
 
